@@ -7,9 +7,9 @@
     @vite('resources/css/app.css')
     <title>{{ $title ?? 'Markshop' }}</title>
 </head>
-<body>
+<body data-theme="light" class="bg-gray-50 min-h-screen">
 
-<h1>Todos</h1>
+<h1></h1>
         <hr/>
         {{ $slot }}    
 

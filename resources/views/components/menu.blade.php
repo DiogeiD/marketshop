@@ -1,9 +1,8 @@
   <div class="navbar bg-yellow-300">
-   <div class="flex-1">
-    <div class="">
+   <div class="flex-1 ">
+    <div class="btn btn-ghost text-xl text-black ">MarketShop 
       
-      
-    </div>
+      </div>
   </div>
      <div class="flex-none gap-2">
    <div class="form-control">

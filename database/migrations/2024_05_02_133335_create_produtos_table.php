@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('nome')->nullable();
             $table->string('descricao');
             $table->float('valor');
+            $table->string('foto');
             $table->foreignIdFor(User::class);
             $table->timestamps();
         });

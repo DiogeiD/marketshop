@@ -48,7 +48,7 @@
 
     <p>{{$produto->descricao}}</p>
     <div class="card-actions justify-between">
-      <div>R$ {{$produto->valor}}</div>
+      <div>R${{$number_format($produto->valor, 2,',','.')}}</div>
       <button class="btn btn-primary">Comprar</button>
     </div>
   </div>

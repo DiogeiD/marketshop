@@ -35,3 +35,7 @@ Route::post('/salva-usuario',function (Request $request) {
     dd("Cauvo com susseço!!");
 
 })->name('salva-usuario');
+
+//-----------------------------------Escreveu algo-----------------------------------
+
+Route::view('/cadastra-produto','cadastra-produto' ); 

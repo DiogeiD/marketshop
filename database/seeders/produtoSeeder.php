@@ -13,7 +13,7 @@ class produtoSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('prudutos')->insert([
+        DB::table('produtos')->insert([
 
             ['name' => 'Calça Top',
             'descricao' => 'Caussa topizera',
@@ -27,16 +27,16 @@ class produtoSeeder extends Seeder
             'foto' => 'https://i.pinimg.com/736x/fe/1c/11/fe1c11c4395fa56f8292d0618fc23e10.jpg',
             'user_id' => 1, ],
 
-            ['name' => 'B',
-            'descricao' => 'Caussa topizera',
-            'valor' => 101,
-            'foto' =>'' ,
+            ['name' => 'Tang Cevada',
+            'descricao' => 'Recomendado para familia brasileira',
+            'valor' => 3,
+            'foto' =>'https://images7.memedroid.com/images/UPLOADED105/5511b89c4564b.jpeg' ,
             'user_id' => 1, ],
 
-            ['name' => 'Calça Top',
-            'descricao' => 'Caussa topizera',
+            ['name' => 'Curso FullStack Rumo Senior ',
+            'descricao' => 'Prof . Diego o sabiu',
             'valor' => 101,
-            'foto' =>'' ,
+            'foto' =>'https://img-c.udemycdn.com/course/750x422/1755476_2755_5.jpg' ,
             'user_id' => 1, ],
 
 

@@ -32,13 +32,14 @@ Route::post('/salva-usuario',function (Request $request) {
     $usuario->email = $request->email; 
     $usuario->password = $request->senha;
     $usuario->save();
-    dd("Cauvo com susseço!!");
+    //dd("Cauvo com susseço!!");
+    return redirect('/login');
 
 })->name('salva-usuario');
 
 //-----------------------------------Escreveu algo-----------------------------------
 
-Route::view('/cadastra-produto','cadastra-produto' ); 
+Route::view('/cadastra-produto','cadastra-produto' )->middleware('auth'); 
 
 Route::post('/salva-produto',function (Request $request) {
     dd($request);
@@ -60,7 +61,50 @@ Route::post('/salva-produto',function (Request $request) {
     $produto->user_id = 1; //comentou mais algo que não sei
 
 
-    //$produto->save();
-    dd("Cauvo com susseço!!");
+    $produto->save();
+    //dd("Cauvo com susseço!!");
+    return redirect('/');
 
-})->name('salva-produto');
+})->name('salva-produto')->middleware('auth');
+
+//--------------------------------------------Login--------------------------------
+
+Route::view('/login','login')->name("login");
+
+Route::post('/logar', function (Request $request) {
+    // testar recebendo dados 
+
+    //dd($request);
+
+
+    $credentials = $request->validate([
+        'email' => ['required', 'email'], //verificar email
+        'senha' => ['required'], //verificar senha
+
+    ]);
+
+    //compara se os dados no banco de dados são iguais o que ele preencheu
+
+    if (Auth::attempt(['email' => $request->email, 'password' => $request->senha])) {
+
+        //cria a sessão do usuário logado
+        $request->session()->regenerate();
+
+        //redireciona para a tela de cadastro de produtos 
+
+        return redirect()->intended('/cadastra-produto');
+
+    }
+
+    else{
+
+        dd("Usuário ou senha incorretos");
+    }
+
+})->name('logar');
+
+Route::get('/sair', function () {
+    Auth::logout();
+    return redirect('/');
+
+});
